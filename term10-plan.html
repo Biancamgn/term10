@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Term 10 Plan — Sept–Dec</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#1a1614;
+  --bg-raised:#221d1a;
+  --bg-sunk:#141110;
+  --cream:#f5e6d3;
+  --cream-dim:#a89684;
+  --orange:#d4874d;
+  --orange-deep:#b46a35;
+  --rule:#3a302a;
+  --rule-soft:rgba(58,48,42,.55);
+  --gym:#9dc4ad;
+  --food:#e0ab74;
+  --study:#a3b0cc;
+  --walk:#b3a1d0;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  background:var(--bg);
+  color:var(--cream);
+  font-family:'DM Sans',system-ui,sans-serif;
+  font-weight:300;
+  line-height:1.65;
+  padding:0 0 6rem;
+  -webkit-font-smoothing:antialiased;
+}
+
+.wrap{max-width:1080px;margin:0 auto;padding:0 1.5rem}
+
+header{
+  padding:5rem 0 3rem;
+  border-bottom:1px dashed var(--rule);
+  margin-bottom:3.5rem;
+}
+.eyebrow{
+  font-family:'DM Mono',monospace;
+  font-size:.7rem;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--orange);
+  margin-bottom:1.2rem;
+}
+h1{
+  font-family:'Playfair Display',serif;
+  font-weight:500;
+  font-size:clamp(2.6rem,7vw,4.4rem);
+  line-height:1.02;
+  letter-spacing:-.02em;
+}
+h1 em{font-style:italic;color:var(--orange)}
+.sub{
+  margin-top:1.4rem;
+  max-width:52ch;
+  color:var(--cream-dim);
+  font-size:1.02rem;
+}
+
+section{margin-bottom:4.5rem}
+.sec-head{
+  display:flex;
+  align-items:baseline;
+  gap:1rem;
+  border-bottom:1px dashed var(--rule);
+  padding-bottom:.7rem;
+  margin-bottom:2rem;
+}
+.sec-num{
+  font-family:'DM Mono',monospace;
+  font-size:.72rem;
+  color:var(--orange);
+  letter-spacing:.15em;
+  flex-shrink:0;
+}
+h2{
+  font-family:'Playfair Display',serif;
+  font-weight:500;
+  font-size:1.85rem;
+  letter-spacing:-.01em;
+}
+h3{
+  font-weight:500;
+  font-size:.78rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--orange);
+  margin:2.4rem 0 .9rem;
+}
+p{margin-bottom:1rem;max-width:70ch}
+strong{font-weight:500;color:#fff}
+em{font-style:italic}
+
+.figures{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+  gap:1px;
+  background:var(--rule);
+  border:1px dashed var(--rule);
+}
+.fig{background:var(--bg-raised);padding:1.5rem 1.3rem}
+.fig-label{
+  font-family:'DM Mono',monospace;
+  font-size:.65rem;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  color:var(--cream-dim);
+  margin-bottom:.6rem;
+}
+.fig-val{
+  font-family:'Playfair Display',serif;
+  font-size:2.3rem;
+  line-height:1;
+  color:var(--orange);
+}
+.fig-val span{font-size:.85rem;font-family:'DM Sans',sans-serif;color:var(--cream-dim);margin-left:.25rem}
+.fig-note{font-size:.78rem;color:var(--cream-dim);margin-top:.5rem;line-height:1.4}
+
+.equation{
+  background:var(--bg-sunk);
+  border-left:2px solid var(--orange);
+  padding:1.1rem 1.4rem;
+  margin:1.5rem 0;
+  font-family:'DM Mono',monospace;
+  font-size:.86rem;
+  overflow-x:auto;
+  white-space:nowrap;
+}
+.equation .r{color:var(--orange)}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:.9rem;
+  margin:1rem 0 1.6rem;
+}
+th{
+  text-align:left;
+  font-family:'DM Mono',monospace;
+  font-size:.66rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--cream-dim);
+  font-weight:400;
+  padding:.6rem .8rem;
+  border-bottom:1px solid var(--rule);
+}
+td{
+  padding:.7rem .8rem;
+  border-bottom:1px dashed var(--rule);
+  vertical-align:top;
+}
+tbody tr:last-child td{border-bottom:none}
+td.num{font-family:'DM Mono',monospace;color:var(--orange);white-space:nowrap}
+
+/* ---------- day cards ---------- */
+.daygrid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:1.2rem;
+  margin-top:1.5rem;
+}
+.daycard{
+  border:1px dashed var(--rule);
+  background:var(--bg-raised);
+  padding:1.4rem 1.4rem 1.1rem;
+}
+.daycard.protected{
+  border-color:var(--orange-deep);
+  background:rgba(212,135,77,.055);
+}
+.daycard.rest{background:var(--bg-sunk)}
+.dc-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:.8rem;
+  border-bottom:1px dashed var(--rule);
+  padding-bottom:.75rem;
+  margin-bottom:.3rem;
+}
+.dc-day{font-family:'Playfair Display',serif;font-size:1.35rem}
+.dc-flag{
+  font-family:'DM Mono',monospace;
+  font-size:.6rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--orange);
+  text-align:right;
+  line-height:1.4;
+}
+.slot{
+  display:grid;
+  grid-template-columns:3.6rem 1fr;
+  gap:.7rem;
+  padding:.5rem 0;
+  border-bottom:1px dashed var(--rule-soft);
+  font-size:.86rem;
+  align-items:start;
+}
+.slot:last-of-type{border-bottom:none}
+.slot-t{
+  font-family:'DM Mono',monospace;
+  font-size:.68rem;
+  color:var(--cream-dim);
+  padding-top:.18rem;
+}
+.dc-foot{
+  font-size:.83rem;
+  color:var(--cream-dim);
+  margin:.9rem 0 0;
+  max-width:none;
+  border-top:1px dashed var(--rule);
+  padding-top:.9rem;
+}
+.cls{color:var(--cream-dim)}
+.tag{
+  display:inline-block;
+  padding:.1rem .42rem;
+  border-radius:2px;
+  font-size:.73rem;
+  font-weight:500;
+}
+.t-gym{background:rgba(110,143,122,.2);color:var(--gym)}
+.t-food{background:rgba(201,148,95,.18);color:var(--food)}
+.t-study{background:rgba(125,138,168,.2);color:var(--study)}
+.t-walk{background:rgba(143,126,168,.2);color:var(--walk)}
+.t-shake{background:rgba(212,135,77,.22);color:var(--orange)}
+.legend{display:flex;flex-wrap:wrap;gap:.5rem;font-size:.72rem;align-items:center}
+
+.days{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:1.2rem;
+  margin-top:1.4rem;
+}
+.day{border:1px dashed var(--rule);background:var(--bg-raised);padding:1.3rem}
+.day-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  border-bottom:1px dashed var(--rule);
+  padding-bottom:.7rem;
+  margin-bottom:.5rem;
+}
+.day-name{font-family:'Playfair Display',serif;font-size:1.2rem}
+.day-when{
+  font-family:'DM Mono',monospace;
+  font-size:.64rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--orange);
+}
+.ex{
+  display:flex;
+  justify-content:space-between;
+  gap:1rem;
+  padding:.55rem 0;
+  border-bottom:1px dashed var(--rule-soft);
+  font-size:.85rem;
+}
+.ex:last-child{border-bottom:none}
+.ex-meta{font-family:'DM Mono',monospace;font-size:.75rem;color:var(--orange);white-space:nowrap}
+.ex-meta b{font-weight:400}
+.ex-meta i{font-style:normal;color:var(--cream-dim);margin-left:.4rem}
+
+.note{
+  border:1px dashed var(--orange-deep);
+  background:rgba(212,135,77,.06);
+  padding:1.3rem 1.5rem;
+  margin:1.8rem 0;
+}
+.note-label{
+  font-family:'DM Mono',monospace;
+  font-size:.64rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--orange);
+  margin-bottom:.7rem;
+}
+.note p:last-child{margin-bottom:0}
+
+.weeks{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.2rem;margin:1.5rem 0}
+.week{border:1px dashed var(--rule);background:var(--bg-raised);padding:1.4rem}
+.week-tag{
+  font-family:'DM Mono',monospace;
+  font-size:.62rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--orange);
+  margin-bottom:.4rem;
+}
+.week-name{font-family:'Playfair Display',serif;font-size:1.3rem;margin-bottom:.9rem}
+.week ul{padding-left:1rem;font-size:.87rem;margin-bottom:0}
+.week li{margin-bottom:.55rem}
+
+.recipe{border-top:1px dashed var(--rule);padding:1.4rem 0}
+.recipe:last-of-type{border-bottom:1px dashed var(--rule)}
+.recipe-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:1rem;
+  margin-bottom:.6rem;
+  flex-wrap:wrap;
+}
+.recipe-name{font-family:'Playfair Display',serif;font-size:1.25rem}
+.recipe-yield{
+  font-family:'DM Mono',monospace;
+  font-size:.68rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--orange);
+}
+.ingredients{
+  font-size:.84rem;
+  color:var(--cream-dim);
+  margin-bottom:.9rem;
+  padding-left:.9rem;
+  border-left:1px solid var(--rule);
+}
+.tip{font-size:.85rem;color:var(--cream-dim);margin:0}
+ol{padding-left:1.2rem;font-size:.9rem;margin-bottom:.9rem}
+ol li{margin-bottom:.45rem;padding-left:.2rem}
+ol li::marker{color:var(--orange);font-family:'DM Mono',monospace;font-size:.8rem}
+ul{padding-left:1.1rem;font-size:.92rem}
+ul li{margin-bottom:.5rem}
+ul li::marker{color:var(--orange)}
+
+.ladder{margin:1.2rem 0;border:1px dashed var(--rule)}
+.rung{
+  display:flex;
+  align-items:center;
+  gap:1rem;
+  padding:.85rem 1.2rem;
+  border-bottom:1px dashed var(--rule);
+  font-size:.92rem;
+}
+.rung:last-child{border-bottom:none}
+.rung-n{font-family:'DM Mono',monospace;font-size:.7rem;color:var(--cream-dim);width:1.6rem;flex-shrink:0}
+.rung.keep{background:rgba(110,143,122,.08)}
+.rung.keep .rung-n{color:var(--gym)}
+
+footer{
+  border-top:1px dashed var(--rule);
+  padding-top:2rem;
+  margin-top:5rem;
+  font-size:.8rem;
+  color:var(--cream-dim);
+}
+
+@media (max-width:640px){
+  header{padding:3rem 0 2rem}
+  .figures{grid-template-columns:1fr 1fr}
+  .equation{font-size:.72rem}
+  .slot{grid-template-columns:3.2rem 1fr;gap:.55rem}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="eyebrow">September — December · Term 10</div>
+  <h1>Cook, lift,<br>study, <em>repeat.</em></h1>
+  <p class="sub">One page for the whole term: the days laid out one by one, two food rotations that alternate week to week, and four lifting days that fit in the gaps.</p>
+</header>
+
+<!-- 01 NUMBERS -->
+<section>
+  <div class="sec-head"><span class="sec-num">01</span><h2>The numbers</h2></div>
+
+  <div class="figures">
+    <div class="fig">
+      <div class="fig-label">BMR</div>
+      <div class="fig-val">1397<span>kcal</span></div>
+      <div class="fig-note">Burned at complete rest</div>
+    </div>
+    <div class="fig">
+      <div class="fig-label">TDEE</div>
+      <div class="fig-val">1921<span>kcal</span></div>
+      <div class="fig-note">Sedentary student + 4 lifting days</div>
+    </div>
+    <div class="fig">
+      <div class="fig-label">Daily target</div>
+      <div class="fig-val">1540<span>kcal</span></div>
+      <div class="fig-note">20% deficit — this is the floor</div>
+    </div>
+    <div class="fig">
+      <div class="fig-label">Expected rate</div>
+      <div class="fig-val">0.45<span>kg/wk</span></div>
+      <div class="fig-note">≈ 6–8 kg across the term</div>
+    </div>
+  </div>
+
+  <div class="equation">BMR = (10 × 70) + (6.25 × 154.94) − (5 × 22) − 161 = <span class="r">1397</span></div>
+  <div class="equation">TDEE = 1397 × 1.375 = <span class="r">1921</span>&nbsp;&nbsp;·&nbsp;&nbsp;Target = 1921 × 0.80 = <span class="r">1540</span></div>
+  <p>Mifflin-St Jeor, female, 5'1" (154.94 cm). These carry roughly ±10% error — treat them as a starting estimate. Your weekly scale average after 3–4 weeks is the real measurement.</p>
+
+  <h3>Macros — with one daily scoop</h3>
+  <table>
+    <thead><tr><th>Macro</th><th>Total</th><th>From shake</th><th>From food</th><th>Per meal (÷4)</th></tr></thead>
+    <tbody>
+      <tr><td>Protein</td><td class="num">135 g</td><td class="num">24 g</td><td class="num">111 g</td><td class="num">~28 g</td></tr>
+      <tr><td>Fat</td><td class="num">50 g</td><td class="num">2 g</td><td class="num">48 g</td><td class="num">~12 g</td></tr>
+      <tr><td>Carbs</td><td class="num">137 g</td><td class="num">3 g</td><td class="num">134 g</td><td class="num">~33 g</td></tr>
+      <tr><td>Calories</td><td class="num">1540</td><td class="num">124</td><td class="num">1416</td><td class="num">~354</td></tr>
+    </tbody>
+  </table>
+  <p>Athlene chocolate whey: 24 g protein and 124 kcal per 32.4 g scoop — 77% of its calories are protein, which is exactly what you want in a deficit. The scoop takes each meal's requirement from 34 g down to 28 g, which is a meaningful difference at dinner.</p>
+  <p><strong>One scoop a day, not more.</strong> Past that it starts crowding out the eggs, beef and chicken that also carry iron, B12 and fat you need while cutting. Mix with water — milk adds ~120 kcal for little extra protein. At 14 servings a tub, daily use is about two tubs a month; using it only on the three days it solves a real problem stretches one tub to four weeks.</p>
+</section>
+
+<!-- 02 THE DAYS -->
+<section>
+  <div class="sec-head"><span class="sec-num">02</span><h2>The days</h2></div>
+
+  <div class="legend">
+    <span class="tag t-study">Study</span>
+    <span class="tag t-gym">Gym</span>
+    <span class="tag t-food">Food</span>
+    <span class="tag t-walk">Walk</span>
+    <span class="tag t-shake">Shake</span>
+  </div>
+
+  <div class="daygrid">
+
+    <div class="daycard">
+      <div class="dc-head">
+        <span class="dc-day">Monday</span>
+        <span class="dc-flag">Gym Day A<br>Early start</span>
+      </div>
+      <div class="slot"><span class="slot-t">6:45</span><span><span class="tag t-food">Breakfast</span></span></div>
+      <div class="slot"><span class="slot-t">7:30</span><span class="cls">LBYCPB3 · V310</span></div>
+      <div class="slot"><span class="slot-t">10:30</span><span><span class="tag t-study">Review &amp; reading</span></span></div>
+      <div class="slot"><span class="slot-t">12:30</span><span><span class="tag t-food">Lunch</span></span></div>
+      <div class="slot"><span class="slot-t">12:45</span><span class="cls">GEPCOMM · online</span></div>
+      <div class="slot"><span class="slot-t">2:30</span><span><span class="tag t-gym">Gym — Day A, lower</span></span></div>
+      <div class="slot"><span class="slot-t">4:00</span><span><span class="tag t-shake">Shake</span> <span class="cls">post-gym</span></span></div>
+      <div class="slot"><span class="slot-t">4:30</span><span><span class="tag t-study">Admin</span></span></div>
+      <div class="slot"><span class="slot-t">5:30</span><span><span class="tag t-walk">Walk 30 min</span></span></div>
+      <div class="slot"><span class="slot-t">7:00</span><span><span class="tag t-food">Dinner</span></span></div>
+      <p class="dc-foot">You've been in class since 7:30, so the late-morning block is for review and reading rather than new material.</p>
+    </div>
+
+    <div class="daycard">
+      <div class="dc-head">
+        <span class="dc-day">Tuesday</span>
+        <span class="dc-flag">Best study<br>morning</span>
+      </div>
+      <div class="slot"><span class="slot-t">6:45</span><span><span class="tag t-food">Breakfast</span></span></div>
+      <div class="slot"><span class="slot-t">7:30</span><span class="cls">MICPROS · A705</span></div>
+      <div class="slot"><span class="slot-t">9:00</span><span><span class="tag t-study">Deep work</span> <span class="cls">— CALENG2, MICPROS</span></span></div>
+      <div class="slot"><span class="slot-t">12:30</span><span><span class="tag t-food">Lunch</span></span></div>
+      <div class="slot"><span class="slot-t">12:45</span><span class="cls">CALENG2 · A704</span></div>
+      <div class="slot"><span class="slot-t">2:15</span><span><span class="tag t-walk">Walk 15 min</span></span></div>
+      <div class="slot"><span class="slot-t">2:30</span><span class="cls">DIGDACM</span></div>
+      <div class="slot"><span class="slot-t">4:00</span><span><span class="tag t-food">Merienda</span></span></div>
+      <div class="slot"><span class="slot-t">4:30</span><span><span class="tag t-study">Admin</span></span></div>
+      <div class="slot"><span class="slot-t">5:30</span><span><span class="tag t-walk">Walk 30 min</span></span></div>
+      <div class="slot"><span class="slot-t">7:00</span><span><span class="tag t-food">Dinner — cooked fresh</span></span></div>
+      <p class="dc-foot">Three and a half uninterrupted hours in the morning, rested, nothing after until 12:45 — put the hardest subject here. Week B, dinner is the beef &amp; egg bowl.</p>
+    </div>
+
+    <div class="daycard">
+      <div class="dc-head">
+        <span class="dc-day">Wednesday</span>
+        <span class="dc-flag">No classes<br>Gym + prep</span>
+      </div>
+      <div class="slot"><span class="slot-t">7:30</span><span><span class="tag t-walk">Walk 30 min</span></span></div>
+      <div class="slot"><span class="slot-t">9:00</span><span><span class="tag t-food">Breakfast</span></span></div>
+      <div class="slot"><span class="slot-t">9:30</span><span><span class="tag t-study">Deliverables</span> <span class="cls">— LBYCPA3, LBYCPF2</span></span></div>
+      <div class="slot"><span class="slot-t">12:30</span><span><span class="tag t-food">Lunch</span></span></div>
+      <div class="slot"><span class="slot-t">1:00</span><span class="cls">free</span></div>
+      <div class="slot"><span class="slot-t">2:30</span><span><span class="tag t-gym">Gym — Day B, upper</span></span></div>
+      <div class="slot"><span class="slot-t">4:00</span><span><span class="tag t-shake">Shake</span> <span class="cls">post-gym</span></span></div>
+      <div class="slot"><span class="slot-t">4:30</span><span><span class="tag t-food">Meal prep</span> <span class="cls">— covers Thu &amp; Fri</span></span></div>
+      <div class="slot"><span class="slot-t">7:00</span><span><span class="tag t-food">Dinner — cooked fresh</span></span></div>
+      <p class="dc-foot">The only block with no class on either side — best day for long-form work. Gym runs straight into prep, so you're already up and you eat right after training. The morning walk replaces the campus steps you'd otherwise miss.</p>
+    </div>
+
+    <div class="daycard protected">
+      <div class="dc-head">
+        <span class="dc-day">Thursday</span>
+        <span class="dc-flag">Protected<br>9:30 → 5:30</span>
+      </div>
+      <div class="slot"><span class="slot-t">7:30</span><span><span class="tag t-food">Breakfast</span></span></div>
+      <div class="slot"><span class="slot-t">9:30</span><span class="cls">LBYCPA3 · V312</span></div>
+      <div class="slot"><span class="slot-t">12:45</span><span class="cls">GEPCOMM · online</span> <span class="tag t-food">eat during</span></div>
+      <div class="slot"><span class="slot-t">2:20</span><span><span class="tag t-shake">Shake</span> <span class="cls">— the 15-min gap</span></span></div>
+      <div class="slot"><span class="slot-t">2:30</span><span class="cls">LBYCPF2 · E22B</span></div>
+      <div class="slot"><span class="slot-t">5:30</span><span><span class="tag t-walk">Walk 20 min</span></span></div>
+      <div class="slot"><span class="slot-t">7:00</span><span><span class="tag t-food">Dinner</span></span></div>
+      <p class="dc-foot">No study block, no gym, no prep. Because GEPCOMM is online you eat your main meal at home at 12:45 — nothing needs to travel cold. The pasta goes in the bag as backup for the 2:20 gap, since you won't eat again until after 5:30.</p>
+    </div>
+
+    <div class="daycard">
+      <div class="dc-head">
+        <span class="dc-day">Friday</span>
+        <span class="dc-flag">Best study<br>morning</span>
+      </div>
+      <div class="slot"><span class="slot-t">6:45</span><span><span class="tag t-food">Breakfast</span></span></div>
+      <div class="slot"><span class="slot-t">7:30</span><span class="cls">MICPROS · A705</span></div>
+      <div class="slot"><span class="slot-t">9:00</span><span><span class="tag t-study">Deep work</span></span></div>
+      <div class="slot"><span class="slot-t">12:30</span><span><span class="tag t-food">Lunch</span></span></div>
+      <div class="slot"><span class="slot-t">12:45</span><span class="cls">CALENG2 · A704</span></div>
+      <div class="slot"><span class="slot-t">2:15</span><span><span class="tag t-walk">Walk 15 min</span></span></div>
+      <div class="slot"><span class="slot-t">2:30</span><span class="cls">DIGDACM</span></div>
+      <div class="slot"><span class="slot-t">4:00</span><span><span class="tag t-food">Merienda</span></span></div>
+      <div class="slot"><span class="slot-t">4:30</span><span><span class="tag t-study">Plan next week</span></span></div>
+      <div class="slot"><span class="slot-t">5:30</span><span><span class="tag t-walk">Walk 30 min</span></span></div>
+      <div class="slot"><span class="slot-t">7:00</span><span><span class="tag t-food">Dinner</span></span></div>
+      <p class="dc-foot">Evening onward is genuinely free. That plus Saturday is your buffer for group work and deadlines that pile up.</p>
+    </div>
+
+    <div class="daycard rest">
+      <div class="dc-head">
+        <span class="dc-day">Sat &amp; Sun</span>
+        <span class="dc-flag">Gym C &amp; D<br>Sunday prep</span>
+      </div>
+      <div class="slot"><span class="slot-t">Sat</span><span><span class="tag t-gym">Gym — Day C, lower</span></span></div>
+      <div class="slot"><span class="slot-t">Sat</span><span><span class="tag t-study">Buffer</span> <span class="cls">— group work, deadlines</span></span></div>
+      <div class="slot"><span class="slot-t">Sun</span><span><span class="tag t-gym">Gym — Day D, upper</span></span></div>
+      <div class="slot"><span class="slot-t">Sun</span><span><span class="tag t-food">Meal prep</span> <span class="cls">— covers Mon–Wed</span></span></div>
+      <p class="dc-foot">Wake by 7:15 both days. More than an hour later than your weekday wake time and the sleep schedule re-drifts by Monday — and you have gym anyway.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- 03 TRAINING -->
+<section>
+  <div class="sec-head"><span class="sec-num">03</span><h2>Training</h2></div>
+  <p>Four days, dumbbells only. Mon and Wed at 2:30–4:00; Sat and Sun flexible.</p>
+
+  <div class="days">
+    <div class="day">
+      <div class="day-head"><span class="day-name">Day A · Lower</span><span class="day-when">Mon</span></div>
+      <div class="ex"><span>Goblet squat</span><span class="ex-meta"><b>4 × 8–12</b><i>90s</i></span></div>
+      <div class="ex"><span>Romanian deadlift</span><span class="ex-meta"><b>4 × 8–12</b><i>90s</i></span></div>
+      <div class="ex"><span>Bulgarian split squat</span><span class="ex-meta"><b>3 × 10/leg</b><i>60s</i></span></div>
+      <div class="ex"><span>Dumbbell hip thrust</span><span class="ex-meta"><b>3 × 12–15</b><i>60s</i></span></div>
+      <div class="ex"><span>Calf raise</span><span class="ex-meta"><b>3 × 15–20</b><i>45s</i></span></div>
+    </div>
+
+    <div class="day">
+      <div class="day-head"><span class="day-name">Day B · Upper</span><span class="day-when">Wed</span></div>
+      <div class="ex"><span>Bench / floor press</span><span class="ex-meta"><b>4 × 8–12</b><i>90s</i></span></div>
+      <div class="ex"><span>One-arm row</span><span class="ex-meta"><b>4 × 10/arm</b><i>90s</i></span></div>
+      <div class="ex"><span>Overhead press</span><span class="ex-meta"><b>3 × 8–12</b><i>60s</i></span></div>
+      <div class="ex"><span>Lateral raise</span><span class="ex-meta"><b>3 × 12–15</b><i>45s</i></span></div>
+      <div class="ex"><span>Curl + tricep extension</span><span class="ex-meta"><b>3 × 12 ea</b><i>45s</i></span></div>
+    </div>
+
+    <div class="day">
+      <div class="day-head"><span class="day-name">Day C · Lower</span><span class="day-when">Sat</span></div>
+      <div class="ex"><span>Reverse lunge</span><span class="ex-meta"><b>4 × 10/leg</b><i>90s</i></span></div>
+      <div class="ex"><span>Sumo squat</span><span class="ex-meta"><b>4 × 10–12</b><i>90s</i></span></div>
+      <div class="ex"><span>Single-leg RDL</span><span class="ex-meta"><b>3 × 10/leg</b><i>60s</i></span></div>
+      <div class="ex"><span>Glute bridge</span><span class="ex-meta"><b>3 × 15</b><i>60s</i></span></div>
+      <div class="ex"><span>Calf raise</span><span class="ex-meta"><b>3 × 15–20</b><i>45s</i></span></div>
+    </div>
+
+    <div class="day">
+      <div class="day-head"><span class="day-name">Day D · Upper</span><span class="day-when">Sun</span></div>
+      <div class="ex"><span>Incline press</span><span class="ex-meta"><b>4 × 8–12</b><i>90s</i></span></div>
+      <div class="ex"><span>Renegade row</span><span class="ex-meta"><b>3 × 8/arm</b><i>90s</i></span></div>
+      <div class="ex"><span>Arnold press</span><span class="ex-meta"><b>3 × 10–12</b><i>60s</i></span></div>
+      <div class="ex"><span>Rear delt fly</span><span class="ex-meta"><b>3 × 12–15</b><i>45s</i></span></div>
+      <div class="ex"><span>Hammer curl</span><span class="ex-meta"><b>3 × 12</b><i>45s</i></span></div>
+    </div>
+  </div>
+
+  <div class="note">
+    <div class="note-label">Progressive overload without micro-plates</div>
+    <p>Fixed dumbbells mean you can't add 2.5 kg at a time, so you progress through reps and tempo instead:</p>
+    <ol style="margin-top:.8rem;margin-bottom:0">
+      <li>Hit the <strong>top</strong> of the rep range on every set, two sessions running.</li>
+      <li>Then pick one: add a set — or slow the lowering phase to 3 seconds — or move up a weight and restart at the bottom of the range.</li>
+      <li>Log every session: weight, sets, reps. Without a log there's no overload, just exercise.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- 04 FOOD -->
+<section>
+  <div class="sec-head"><span class="sec-num">04</span><h2>Food — two rotations</h2></div>
+  <p>Alternate A → B → A → B through the term. You'll know which week you're in by whether there's beef in the cart. Two cook days either way: Sunday covers Mon–Wed, Wednesday covers Thu–Fri. Rice and chicken cooked on Sunday are grim by Friday, which is why it isn't one big cook.</p>
+
+  <div class="weeks">
+    <div class="week">
+      <div class="week-tag">Rotation</div>
+      <div class="week-name">Week A — chicken</div>
+      <ul>
+        <li><strong>Sun:</strong> chicken adobo + rice + 3 boiled eggs</li>
+        <li><strong>Wed:</strong> teriyaki + tofu sisig + fresh rice + 3 eggs</li>
+        <li><strong>Tue dinner:</strong> from the Sunday batch</li>
+        <li><strong>Thu portable:</strong> tuna pasta</li>
+        <li><strong>Breakfast:</strong> 2 eggs + rice</li>
+      </ul>
+    </div>
+    <div class="week">
+      <div class="week-tag">Rotation</div>
+      <div class="week-name">Week B — beef</div>
+      <ul>
+        <li><strong>Sun:</strong> beef giniling + rice + 3 boiled eggs</li>
+        <li><strong>Wed:</strong> chicken adobo or teriyaki + fresh rice + 3 eggs</li>
+        <li><strong>Tue dinner:</strong> beef &amp; egg rice bowl, cooked fresh</li>
+        <li><strong>Thu portable:</strong> sardine pasta</li>
+        <li><strong>Breakfast:</strong> egg sandwich on whole wheat</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Eating windows</h3>
+  <table>
+    <thead><tr><th>Meal</th><th>Time</th><th>What</th></tr></thead>
+    <tbody>
+      <tr><td>Breakfast</td><td class="num">6:45</td><td>Eggs + rice (A) or egg sandwich (B). Wed at 9:00, Thu at 7:30.</td></tr>
+      <tr><td>Lunch</td><td class="num">12:30</td><td>Main prepped meal. Thursday: eaten at 12:45 during the online class.</td></tr>
+      <tr><td>Merienda</td><td class="num">4:00</td><td>Shake on gym days, otherwise eggs or leftovers. Thursday: 2:20.</td></tr>
+      <tr><td>Dinner</td><td class="num">7:00</td><td>Main prepped meal. Tue and Wed cooked fresh.</td></tr>
+    </tbody>
+  </table>
+  <p>On non-gym days the 4:00 slot is just a snack — keep it anyway. Dropping a meal to "save" calories is what leads to raiding the pantry at 10 PM.</p>
+
+  <h3>The dishes</h3>
+
+  <div class="recipe">
+    <div class="recipe-head"><span class="recipe-name">Beef giniling</span><span class="recipe-yield">4 servings · ~32 g each · Week B Sunday</span></div>
+    <div class="ingredients">500 g lean ground beef · 2 potatoes, diced · 2 carrots, diced · 1 cup tomato sauce · 1 onion · 4 cloves garlic · soy sauce · salt, pepper</div>
+    <ol>
+      <li>Brown the beef, then <strong>drain the fat off</strong> — saves about 150 kcal per batch.</li>
+      <li>Add onion and garlic, cook until soft.</li>
+      <li>Add tomato sauce, a splash of soy sauce, the potato and carrot. Simmer 20 min until the potato is tender.</li>
+    </ol>
+    <p class="tip">The best reheater on this list — holds four days easily and freezes well. Worth making double.</p>
+  </div>
+
+  <div class="recipe">
+    <div class="recipe-head"><span class="recipe-name">Beef &amp; egg rice bowl</span><span class="recipe-yield">2 servings · ~38 g each · Week B Tuesday</span></div>
+    <div class="ingredients">300 g ground beef · 1 onion, sliced · 3 tbsp soy sauce · 1 tbsp sugar · 1 tsp grated ginger · 2 eggs · rice</div>
+    <ol>
+      <li>Soften the onion, add the beef and brown.</li>
+      <li>Add soy sauce, sugar, ginger and a splash of water. Simmer 5 min until glossy.</li>
+      <li>Spoon over rice, top with a soft-cooked egg.</li>
+    </ol>
+    <p class="tip">Cook fresh — the soft egg doesn't survive storage. Fifteen minutes start to finish, and you're home from DIGDACM at 4:00 with nothing after.</p>
+  </div>
+
+  <div class="recipe">
+    <div class="recipe-head"><span class="recipe-name">Chicken adobo</span><span class="recipe-yield">6 servings · ~35 g each · Week A Sunday</span></div>
+    <div class="ingredients">1.5 kg chicken thighs · ¾ cup soy sauce · ½ cup vinegar · 1 cup water · 1 head garlic, crushed · 2 bay leaves · 1 tsp peppercorns · 1 tbsp sugar</div>
+    <ol>
+      <li>Brown the chicken skin-down in a dry pot, 5 min — no oil, the skin renders its own. Remove.</li>
+      <li>Fry the garlic in the rendered fat, 1 min.</li>
+      <li>Return the chicken. Add soy sauce, water, bay leaves, peppercorns. Simmer covered 25 min.</li>
+      <li>Add the vinegar and <strong>don't stir for 5 minutes</strong> — letting it boil off first cooks out the raw sharpness.</li>
+      <li>Uncover, add sugar, simmer 10–15 min until the sauce coats a spoon. Dump in a cup of frozen veg here.</li>
+    </ol>
+    <p class="tip">Genuinely improves by day two, and the acid keeps it safe longer than most dishes.</p>
+  </div>
+
+  <div class="recipe">
+    <div class="recipe-head"><span class="recipe-name">Chicken teriyaki</span><span class="recipe-yield">2 servings · ~35 g each</span></div>
+    <div class="ingredients">500 g chicken thighs · ¼ cup soy sauce · 2 tbsp sugar · 1 tbsp vinegar · 1 tsp grated ginger</div>
+    <ol>
+      <li>Airfry the chicken at 200 °C for 20 min, flipping once.</li>
+      <li>Meanwhile simmer the sauce ingredients 3–4 min until syrupy.</li>
+      <li>Slice the chicken, toss in the sauce.</li>
+    </ol>
+  </div>
+
+  <div class="recipe">
+    <div class="recipe-head"><span class="recipe-name">Tofu sisig</span><span class="recipe-yield">2 servings · ~20 g each</span></div>
+    <div class="ingredients">3 blocks firm tofu · 1 onion, diced · 3 cloves garlic · 2 tbsp soy sauce · calamansi · chili optional</div>
+    <ol>
+      <li>Press the tofu 15 min under something heavy — wet tofu steams instead of crisping.</li>
+      <li>Cube and airfry at 200 °C for 15 min until golden.</li>
+      <li>Sauté onion and garlic, add tofu, soy sauce, calamansi. Toss 2 min.</li>
+    </ol>
+    <p class="tip">An egg on top takes it from 20 g to 27 g.</p>
+  </div>
+
+  <div class="recipe">
+    <div class="recipe-head"><span class="recipe-name">Sardine pasta</span><span class="recipe-yield">2 servings · Week B Thursday portable</span></div>
+    <div class="ingredients">200 g pasta · 2 cans sardines in tomato sauce · 4 cloves garlic, minced · 1 onion · 1 cup frozen veg · calamansi · pepper</div>
+    <ol>
+      <li>Boil the pasta, drain, rinse cold — stops the cooking so it doesn't turn to mush overnight.</li>
+      <li>Sauté onion and garlic. Add frozen veg, 3 min.</li>
+      <li>Add the sardines with their sauce, break them up, 2 min.</li>
+      <li>Toss with the pasta off the heat. Calamansi, pepper.</li>
+    </ol>
+    <p class="tip">Already sauced and cheaper than tuna. Fine at room temperature — half Thursday, half Friday lunch.</p>
+  </div>
+
+  <div class="recipe">
+    <div class="recipe-head"><span class="recipe-name">Tuna pasta</span><span class="recipe-yield">2 servings · Week A Thursday portable</span></div>
+    <div class="ingredients">200 g pasta · 2 cans tuna in oil · 4 cloves garlic · 1 onion · 1 cup frozen veg · calamansi · salt, pepper</div>
+    <ol>
+      <li>Boil, drain, rinse cold.</li>
+      <li>Sauté onion and garlic, add frozen veg, 3 min.</li>
+      <li>Add the tuna <strong>with its oil</strong>, break it up, 2 min.</li>
+      <li>Toss off the heat with calamansi and seasoning.</li>
+    </ol>
+  </div>
+
+  <div class="recipe">
+    <div class="recipe-head"><span class="recipe-name">Egg sandwich</span><span class="recipe-yield">~20 g · 5 minutes · Week B breakfast</span></div>
+    <div class="ingredients">2 eggs, scrambled · 2 slices whole wheat · pepper</div>
+    <p class="tip">Five minutes instead of fifteen, which is the whole point at 6:45. A leftover giniling scoop in there takes it to ~28 g.</p>
+  </div>
+
+  <div class="recipe">
+    <div class="recipe-head"><span class="recipe-name">Hard-boiled eggs</span><span class="recipe-yield">3 per cook day · both weeks</span></div>
+    <div class="ingredients">Cold water · bring to boil · kill the heat · cover 11 min · ice bath</div>
+    <p class="tip">Unpeeled they keep <strong>1 week</strong> in the fridge. Peeled and stored in water, <strong>3–4 days</strong> — change the water daily. Back of a middle shelf, never the door, where the temperature swings every time it opens.</p>
+  </div>
+
+  <h3>Storage</h3>
+  <ul>
+    <li><strong>Everything into containers within two hours of cooking</strong>, then straight to the fridge. Don't leave pots cooling on the counter overnight.</li>
+    <li><strong>Rice</strong> reheats best with a tablespoon of water and a damp paper towel over it.</li>
+    <li><strong>Bananas:</strong> room temperature while green or yellow — the fridge blackens the peel. Once fully ripe the fridge buys another 5–7 days. Keep them away from other fruit, split the bunch into singles, and wrap the crown in cling film for 2–3 extra days. If they're outrunning you, peel, chop and freeze. In Manila humidity expect 4–5 days from yellow to spotty, so buy slightly green.</li>
+    <li><strong>Portions:</strong> about ¾ cup cooked rice per meal rather than a full cup, roughly double the protein you'd normally serve.</li>
+  </ul>
+
+  <h3>Groceries — ~₱5,450/month</h3>
+  <table>
+    <thead><tr><th>Item</th><th>Qty</th><th>Cost</th><th>Week</th></tr></thead>
+    <tbody>
+      <tr><td>Rice</td><td>10 kg</td><td class="num">₱550</td><td>both</td></tr>
+      <tr><td>Chicken thigh / breast</td><td>4 kg</td><td class="num">₱800</td><td>both</td></tr>
+      <tr><td>Eggs</td><td>3 trays</td><td class="num">₱750</td><td>both</td></tr>
+      <tr><td>Ground beef, lean</td><td>1.5 kg</td><td class="num">₱600</td><td>B</td></tr>
+      <tr><td>Whole wheat bread</td><td>4 loaves</td><td class="num">₱450</td><td>B</td></tr>
+      <tr><td>Canned tuna</td><td>12 cans</td><td class="num">₱450</td><td>A</td></tr>
+      <tr><td>Canned sardines</td><td>12 cans</td><td class="num">₱300</td><td>B</td></tr>
+      <tr><td>Tofu</td><td>8 blocks</td><td class="num">₱200</td><td>A</td></tr>
+      <tr><td>Pasta</td><td>1 kg</td><td class="num">₱120</td><td>both</td></tr>
+      <tr><td>Frozen mixed veg</td><td>3 kg</td><td class="num">₱450</td><td>both</td></tr>
+      <tr><td>Potatoes, carrots, tomato sauce</td><td>—</td><td class="num">₱480</td><td>both</td></tr>
+      <tr><td>Onion, garlic, ginger</td><td>—</td><td class="num">₱350</td><td>both</td></tr>
+      <tr><td>Soy sauce, vinegar, oyster sauce, oil, salt, pepper</td><td>—</td><td class="num">₱450</td><td>both</td></tr>
+      <tr><td>Bananas / cheap fruit</td><td>—</td><td class="num">₱150</td><td>both</td></tr>
+    </tbody>
+  </table>
+  <p>Week B runs about ₱1,000 dearer than Week A, so alternating is what keeps the monthly average near ₱5,450 rather than ₱6,400. Wet market chicken and beef usually run ₱30–50/kg under supermarket, which closes most of the gap to the original ₱5,000.</p>
+
+  <div class="note">
+    <div class="note-label">Protein per peso, for when you're substituting</div>
+    <p>Eggs ~₱65 per 100 g protein · monggo ~₱70 · chicken thigh ~₱90 · canned tuna ~₱110 · tofu ~₱120 · ground beef ~₱190. Beef is roughly double chicken — fine for one week in two, because variety is what stops you abandoning this in October, but it can't become the staple without breaking the budget.</p>
+  </div>
+
+  <p><strong>On vegetables:</strong> the frozen mix isn't a side dish. It goes <em>into</em> the giniling, the adobo, the pasta, where it disappears. Ten meals a week of rice and protein alone will leave you dragging by week three.</p>
+</section>
+
+<!-- 05 SLEEP -->
+<section>
+  <div class="sec-head"><span class="sec-num">05</span><h2>Sleep reset — before Sept 7</h2></div>
+  <p>Target: <strong>10:30 PM lights out, 6:00–6:15 wake</strong> — about 7.75 hours, which clears the 6:45 breakfast and the 7:30 classes on Mon, Tue and Fri.</p>
+  <p>Shift in 30-minute steps every 2 days, not one jump. Start at whichever rung matches where you actually are now.</p>
+
+  <table>
+    <thead><tr><th>Days</th><th>Sleep</th><th>Wake</th></tr></thead>
+    <tbody>
+      <tr><td>Aug 27–28</td><td class="num">1:30 AM</td><td class="num">9:30</td></tr>
+      <tr><td>Aug 29–30</td><td class="num">1:00 AM</td><td class="num">9:00</td></tr>
+      <tr><td>Aug 31–Sep 1</td><td class="num">12:30 AM</td><td class="num">8:30</td></tr>
+      <tr><td>Sep 2–3</td><td class="num">12:00 AM</td><td class="num">8:00</td></tr>
+      <tr><td>Sep 4</td><td class="num">11:30 PM</td><td class="num">7:30</td></tr>
+      <tr><td>Sep 5</td><td class="num">11:00 PM</td><td class="num">7:00</td></tr>
+      <tr><td>Sep 6</td><td class="num">10:30 PM</td><td class="num">6:15</td></tr>
+    </tbody>
+  </table>
+
+  <h3>What moves the clock</h3>
+  <ul>
+    <li><strong>Wake time is the lever, not bedtime.</strong> You can't force sleep, but you can force yourself out of bed. Fix the wake time and the bedtime follows within a few days.</li>
+    <li><strong>Morning light within 30 minutes of waking</strong> — 10–15 min actually outdoors, not through a window. Strongest signal your body clock has, and it's free.</li>
+    <li><strong>Dim everything after 9 PM.</strong> Lamps only, phone brightness down. Light at night pushes the clock later, which is what you're fighting.</li>
+    <li><strong>No caffeine after 2 PM.</strong> Half-life is 5–6 hours, so a 4 PM coffee still has a quarter circulating at 10 PM.</li>
+    <li><strong>Keep dinner at 7 PM.</strong> Meal timing is a secondary clock signal — consistency helps the shift hold.</li>
+  </ul>
+
+  <h3>What undoes it</h3>
+  <ul>
+    <li>Sleeping in more than an hour on weekends. Wake by 7:15 Sat and Sun.</li>
+    <li>Studying in bed. Keep the bed for sleep or your brain stops associating it with sleep.</li>
+    <li>Napping after 3 PM. If Thursday wrecks you, nap before 3 and cap it at 25 minutes.</li>
+  </ul>
+  <p style="font-size:.87rem;color:var(--cream-dim)">If you've shifted successfully and still can't fall asleep at 10:30 after a couple of weeks, or you're getting the full 8 hours and still exhausted through the day, that's worth raising with a doctor rather than pushing harder on the routine.</p>
+</section>
+
+<!-- 06 DAILY -->
+<section>
+  <div class="sec-head"><span class="sec-num">06</span><h2>Daily variables</h2></div>
+  <table>
+    <thead><tr><th>Variable</th><th>Target</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr><td>Sleep</td><td class="num">7–9 hrs</td><td>The most-skipped one. Under-sleeping raises hunger hormones and measurably slows fat loss at the same intake.</td></tr>
+      <tr><td>Steps</td><td class="num">7–8k</td><td>Campus gives you 3–4k free on class days; the scheduled walks close the gap. 30 min ≈ 3,000–3,500 steps.</td></tr>
+      <tr><td>Water</td><td class="num">2.5–3 L</td><td>Higher protein means your kidneys need it.</td></tr>
+      <tr><td>Weigh-in</td><td class="num">3–4×/wk</td><td>Same time, same conditions — then average the week. Daily swings of 1–2 kg are water and food volume, not fat.</td></tr>
+      <tr><td>Reassess</td><td class="num">4 weeks</td><td>If the weekly average hasn't moved at all, drop 100 kcal or add steps. Don't slash further.</td></tr>
+    </tbody>
+  </table>
+  <p>If the 5:30 walk gets eaten by group work, walk after dinner instead — post-meal walking is fine and helps digestion.</p>
+</section>
+
+<!-- 07 WHEN IT SLIPS -->
+<section>
+  <div class="sec-head"><span class="sec-num">07</span><h2>When it slips</h2></div>
+  <p>This plan holds about 20 hours of study, 4 gym sessions, 2 prep sessions and a calorie deficit at the same time. Something will give, especially in the first fortnight. Sacrifice in this order:</p>
+
+  <div class="ladder">
+    <div class="rung"><span class="rung-n">1st</span><span>Step goal</span></div>
+    <div class="rung"><span class="rung-n">2nd</span><span>A study block</span></div>
+    <div class="rung"><span class="rung-n">3rd</span><span>A gym session</span></div>
+    <div class="rung keep"><span class="rung-n">—</span><span><strong>Never sleep. Never protein.</strong> These two are what make the rest survivable.</span></div>
+  </div>
+
+  <div class="note">
+    <div class="note-label">Two things worth rereading in week 3</div>
+    <p><strong>1540 kcal sits only ~150 above your BMR.</strong> That's a legitimate deficit at your height, but it's the floor. Going lower doesn't speed anything up — it costs you muscle, tanks your energy through an 8-hour Thursday, and makes the whole thing collapse. If progress looks slow and you want to cut further, that's the moment to hold steady instead.</p>
+    <p style="margin-top:.9rem"><strong>Progress will look flat for two-week stretches and then drop suddenly.</strong> That's how it works, and it isn't a signal to change anything.</p>
+  </div>
+</section>
+
+<footer>
+  Term 10 · September–December · Estimates from Mifflin-St Jeor, ±10%. Peso prices are rough Metro Manila figures — check your palengke.
+</footer>
+
+</div>
+</body>
+</html>
